@@ -30,7 +30,6 @@ class BinaryTree {
             if(node.left) {
                 _walk(node.left);
             }
-
             results.push(node.value);
 
             if(node.right) {
