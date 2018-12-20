@@ -43,7 +43,6 @@ describe('Linked List Traversal', () => {
       expect(queue.storage.head.value).toBe(3);
       queue.enqueue(4);
       expect(queue.storage.head.value).toBe(4);
-      console.log(queue);
     });
   });
 
