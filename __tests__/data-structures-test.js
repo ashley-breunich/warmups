@@ -2,6 +2,7 @@
 
 let Node = require('../node.js');
 let LL = require('../practice-linked-list.js');
+let LinkedList = require('../12-22-2018/practice-linked-list.js');
 let Stacks = require('../practice-stack.js');
 let Queue = require('../practice-queue.js');
 const BinaryTree = require('../practice-trees.js');
