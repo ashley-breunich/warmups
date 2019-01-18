@@ -2,39 +2,83 @@
 
 let Node = require('../node.js');
 let LL = require('../practice-linked-list.js');
-let LinkedList = require('../12-22-2018/practice-linked-list.js');
-let Stacks = require('../practice-stack.js');
-let Queue = require('../practice-queue.js');
+let LinkedList = require('../01-17-2019/practice-linked-lists.js');
+let Stacks = require('../01-17-2019/practice-stack.js');
+let Queue = require('../01-17-2019/practice-queue.js');
 const BinaryTree = require('../practice-trees.js');
 
 
 describe('Linked List Traversal', () => {
     it('The linked list can be traversed and the values are returned.', ()=> {
       let list = new LL();
-      list.append(1);  
-      list.append(2);
-      list.append(3);
+      list.append('blue');  
+      list.append('green');
+      list.append('yellow');
+      list.append('orange');
+      list.append('pink');
       let results = list.traversal();
-      expect(results).toEqual([1,2,3]);
+      // console.log(results, 'results');
+      expect(results).toEqual(["blue", "green", "yellow", "orange", "pink"]);
     });
   });
 
-  describe('Process Stack in the correct order', () => {
-    it('A stack can be processed in the correct order - Last In First Out.', ()=> {
+  describe('Stack - Push', () => {
+    it('A stack can be added to - Last In First Out.', ()=> {
       let stack = new Stacks();
       stack.push(1);
       expect(stack.top.value).toBe(1);
       stack.push(2);  
       expect(stack.top.value).toBe(2);
-      stack.push(3);  
+      stack.push(3); 
       expect(stack.top.value).toBe(3);  
       stack.push(4); 
       expect(stack.top.value).toBe(4);
+      // console.log(stack);
     });
   });
 
-  describe('Process Queue in the correct order', () => {
-    it('A queue can be processed in the correct order - First In First Out.', ()=> {
+  describe('Stack - Pop', () => {
+    it('A stack can be removed from - Last In First Out.', ()=> {
+      let stack = new Stacks();
+      stack.push(1);
+      expect(stack.top.value).toBe(1);
+      stack.push(2);  
+      expect(stack.top.value).toBe(2);
+      stack.push(3); 
+      expect(stack.top.value).toBe(3);  
+      stack.push(4); 
+      expect(stack.top.value).toBe(4);
+      let popped = stack.pop();
+      // console.log(popped);
+      expect(popped.value).toBe(4);
+      let popped2 = stack.pop();
+      // console.log(popped2);
+      expect(popped2.value).toBe(3);
+      // console.log(stack);
+    });
+  });
+
+  describe('Stack - Peek', () => {
+    it('A stack can peek to the top value', ()=> {
+      let stack = new Stacks();
+      stack.push(1);
+      expect(stack.top.value).toBe(1);
+      stack.push(2);  
+      expect(stack.top.value).toBe(2);
+      stack.push(3); 
+      expect(stack.top.value).toBe(3);  
+      stack.push(4); 
+      expect(stack.top.value).toBe(4);
+      let peekedValue = stack.peek();
+      expect(peekedValue.value).toBe(4);
+      stack.pop();
+      let peekedValue2 = stack.peek();
+      expect(peekedValue2.value).toBe(3);
+    });
+  });
+
+  describe('Queue - Enqueued', () => {
+    it('A queue can be enqueued in the correct order - First In First Out.', ()=> {
       let queue = new Queue();
       queue.enqueue(1);
       expect(queue.storage.head.value).toBe(1);
@@ -44,6 +88,43 @@ describe('Linked List Traversal', () => {
       expect(queue.storage.head.value).toBe(3);
       queue.enqueue(4);
       expect(queue.storage.head.value).toBe(4);
+      // console.log('queue', queue);
+    });
+  });
+
+  describe('Queue - Dequeued', () => {
+    it('A queue can be dequeued in the correct order - First In First Out.', ()=> {
+      let queue = new Queue();
+      queue.enqueue(1);
+      expect(queue.storage.head.value).toBe(1);
+      queue.enqueue(2);
+      expect(queue.storage.head.value).toBe(2);
+      queue.enqueue(3);
+      expect(queue.storage.head.value).toBe(3);
+      queue.enqueue(4);
+      expect(queue.storage.head.value).toBe(4);
+      let dequeued = queue.dequeue();
+      expect(dequeued.value).toBe(1);
+      let dequeued2 = queue.dequeue();
+      expect(dequeued2.value).toBe(2);
+      let dequeued3 = queue.dequeue();
+      expect(dequeued3.value).toBe(3);
+    });
+  });
+
+  describe('Queue - Peek', () => {
+    it('A queue can peek to the front value', ()=> {
+      let queue = new Queue();
+      queue.enqueue(1);
+      expect(queue.storage.head.value).toBe(1);
+      queue.enqueue(2);
+      expect(queue.storage.head.value).toBe(2);
+      queue.enqueue(3);
+      expect(queue.storage.head.value).toBe(3);
+      queue.enqueue(4);
+      expect(queue.storage.head.value).toBe(4);
+      let peekedValue = queue.peek();
+      expect(peekedValue.value).toBe(4);
     });
   });
 
@@ -64,7 +145,7 @@ three.right = seven;
 
 let tree = new BinaryTree(one);
 
-describe('Binary Traversal Trees', () => {
+describe('Binary Tree Traversals', () => {
 
     it('Can perform a preOrder traversal', () => {
       let preOrderTraversal = tree.preOrder();
