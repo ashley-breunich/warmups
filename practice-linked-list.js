@@ -80,7 +80,7 @@ class LinkedList {
           }
 
           return current;
-      }
+        }
 }
 
 module.exports = LinkedList; 
