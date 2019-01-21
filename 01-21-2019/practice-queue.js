@@ -10,10 +10,6 @@ class Queue {
 
     enqueue(value) {
         this.storage.prepend(value);
-        // this is the prepend function
-        // let node = new Node(value);
-        // node.next = this.head;
-        // this.head = node;
         this.front = this.storage.head.value;
         return this;
     }
@@ -24,8 +20,8 @@ class Queue {
     }
 
     peek() {
-        let firstItem = this.storage.head;
-        return firstItem;
+        let peekedValue = this.storage.head;
+        return peekedValue;
     }
 }
 
