@@ -1,16 +1,16 @@
 'use strict';
 
 let Node = require('../node.js');
-let LL = require('../practice-linked-list.js');
-let LinkedList = require('../01-17-2019/practice-linked-lists.js');
-let Stacks = require('../01-17-2019/practice-stack.js');
-let Queue = require('../01-17-2019/practice-queue.js');
+// let LL = require('../practice-linked-list.js');
+let LinkedList = require('../01-21-2019/practice-linked-lists.js');
+let Stacks = require('../01-21-2019/practice-stack.js');
+let Queue = require('../01-21-2019/practice-queue.js');
 const BinaryTree = require('../practice-trees.js');
 
 
 describe('Linked List Traversal', () => {
     it('The linked list can be traversed and the values are returned.', ()=> {
-      let list = new LL();
+      let list = new LinkedList();
       list.append('blue');  
       list.append('green');
       list.append('yellow');
@@ -88,7 +88,10 @@ describe('Linked List Traversal', () => {
       expect(queue.storage.head.value).toBe(3);
       queue.enqueue(4);
       expect(queue.storage.head.value).toBe(4);
-      // console.log('queue', queue);
+      expect(queue.storage.head.next.value).toBe(3);
+      expect(queue.storage.head.next.next.value).toBe(2);
+      expect(queue.storage.head.next.next.next.value).toBe(1  );
+      console.log('queue', queue);
     });
   });
 
@@ -107,8 +110,10 @@ describe('Linked List Traversal', () => {
       expect(dequeued.value).toBe(1);
       let dequeued2 = queue.dequeue();
       expect(dequeued2.value).toBe(2);
+      // console.log(queue);
       let dequeued3 = queue.dequeue();
       expect(dequeued3.value).toBe(3);
+      // console.log(queue);
     });
   });
 
