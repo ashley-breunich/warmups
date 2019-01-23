@@ -5,7 +5,7 @@ let Node = require('../node.js');
 let LinkedList = require('../01-21-2019/practice-linked-lists.js');
 let Stacks = require('../01-21-2019/practice-stack.js');
 let Queue = require('../01-21-2019/practice-queue.js');
-const BinaryTree = require('../practice-trees.js');
+const BinaryTree = require('../01-21-2019/practice-trees.js');
 
 
 describe('Linked List Traversal', () => {
