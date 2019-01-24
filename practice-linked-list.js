@@ -12,18 +12,12 @@ class LinkedList {
     traversal() {
         
         let values = [];
-        
-        if(!this.head) {
-            return 'There is no linked list'
-        }
-
         let current = this.head;
 
         while(current) {
             values.push(current.value);
             current = current.next;
         }
-
         return values;
     }
 

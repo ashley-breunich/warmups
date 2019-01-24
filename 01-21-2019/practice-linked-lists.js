@@ -14,4 +14,4 @@ function traverse() {
     return values;
 }
 
-module.exports = LinkedList;
+module.exports = traverse;
