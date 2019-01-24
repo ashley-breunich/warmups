@@ -2,9 +2,9 @@
 
 let Node = require('../node.js');
 // let LL = require('../practice-linked-list.js');
-let LinkedList = require('../01-21-2019/practice-linked-lists.js');
-let Stacks = require('../01-21-2019/practice-stack.js');
-let Queue = require('../01-21-2019/practice-queue.js');
+let LinkedList = require('../01-22-2019/practice-linked-lists.js');
+let Stacks = require('../01-22-2019/practice-stack.js');
+let Queue = require('../01-22-2019/practice-queue.js');
 const BinaryTree = require('../01-21-2019/practice-trees.js');
 
 
@@ -91,7 +91,7 @@ describe('Linked List Traversal', () => {
       expect(queue.storage.head.next.value).toBe(3);
       expect(queue.storage.head.next.next.value).toBe(2);
       expect(queue.storage.head.next.next.next.value).toBe(1  );
-      console.log('queue', queue);
+      // console.log('queue', queue);
     });
   });
 
@@ -152,24 +152,52 @@ let tree = new BinaryTree(one);
 
 describe('Binary Tree Traversals', () => {
 
-    it('Can perform a preOrder traversal', () => {
-      let preOrderTraversal = tree.preOrder();
-      expect(preOrderTraversal).toEqual([1, 2, 4, 5, 3, 6, 7]);
-    });
+    // it('Can perform a preOrder traversal', () => {
+    //   let preOrderTraversal = treeTest.preOrder();
+    //   expect(preOrderTraversal).toEqual([100, 70, 50, 30, 75, 120, 115, 125, 118, 140]);
+    // });
   
-    it('Can perform an inOrder traversal', () => {
-      let inOrderTraversal = tree.inOrder();
-      expect(inOrderTraversal).toEqual([ 4, 2, 5, 1, 6, 3, 7 ]);
-    });
+    // it('Can perform an inOrder traversal', () => {
+    //   let inOrderTraversal = treeTest.inOrder();
+    //   expect(inOrderTraversal).toEqual([30, 50, 70, 75, 100, 115, 120, 118, 125, 140]);
+    // });
   
-    it('Can perform a postOrder traversal', () => {
-      let postOrderTraversal = tree.postOrder();
-      expect(postOrderTraversal).toEqual([ 4, 5, 2, 6, 7, 3, 1 ]);
-    });
+    // it('Can perform a postOrder traversal', () => {
+    //   let postOrderTraversal = treeTest.postOrder();
+    //   expect(postOrderTraversal).toEqual([30, 50, 75, 70, 115, 118, 140, 125, 120, 100]);
+    // });
   
-    it('Can perform a breadthFirst traversal', () => {
-      let BreadthFirstTraversal = tree.breadthFirst();
-      expect(BreadthFirstTraversal).toEqual([ 1, 2, 3, 4, 5, 6, 7 ]);
+    // it('Can perform a breadthFirst traversal', () => {
+    //   let BreadthFirstTraversal = treeTest.breadthFirst();
+    //   expect(BreadthFirstTraversal).toEqual([ 100, 70, 120, 50, 75, 115, 125, 30, 118, 140 ]);
+    // });
+
+    it('Can check whether a tree is a BST', () => {
+      let searchTree = treeTest.binarySearchTree();
+      expect(searchTree).toEqual(true);
     });
     
   });
+
+let oneTest = new Node (100);
+let twoTest = new Node (70); 
+let threeTest = new Node (120);
+let fourTest = new Node (50);
+let fiveTest = new Node (75);
+let sixTest = new Node (115);
+let sevenTest = new Node (125);
+let eightTest = new Node (30);
+let nineTest = new Node (121);
+let tenTest = new Node (140);
+
+oneTest.left = twoTest;
+oneTest.right = threeTest;
+twoTest.left = fourTest;
+twoTest.right = fiveTest;
+threeTest.left = sixTest;
+threeTest.right = sevenTest;
+fourTest.left = eightTest;
+sevenTest.left = nineTest;
+sevenTest.right = tenTest;
+
+let treeTest = new BinaryTree(oneTest);
